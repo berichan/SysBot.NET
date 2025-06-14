@@ -13,7 +13,7 @@ public class RandomSelectModule<T> : ModuleBase<SocketCommandContext> where T : 
     [Command("random")]
     [Alias("r", "event")]
     [Summary("Allows a manual Ledy trade")]
-    [RequireQueueRole(nameof(DiscordManager.RolesClone))]
+    [RequireQueueRole(nameof(DiscordManager.RolesTrade))]
     public Task RandomAsync(int code)
     {
         var sig = Context.User.GetFavor();
@@ -23,7 +23,7 @@ public class RandomSelectModule<T> : ModuleBase<SocketCommandContext> where T : 
     [Command("random")]
     [Alias("r", "event")]
     [Summary("Allows a manual Ledy trade")]
-    [RequireQueueRole(nameof(DiscordManager.RolesClone))]
+    [RequireQueueRole(nameof(DiscordManager.RolesTrade))]
     public Task RandomAsync([Summary("Trade Code")][Remainder] string code)
     {
         int tradeCode = Util.ToInt32(code);
@@ -32,9 +32,9 @@ public class RandomSelectModule<T> : ModuleBase<SocketCommandContext> where T : 
     }
 
     [Command("random")]
-    [Alias("r")]
+    [Alias("r", "event")]
     [Summary("Allows a manual Ledy trade")]
-    [RequireQueueRole(nameof(DiscordManager.RolesClone))]
+    [RequireQueueRole(nameof(DiscordManager.RolesTrade))]
     public Task RandomAsync()
     {
         var code = Info.GetRandomTradeCode();
